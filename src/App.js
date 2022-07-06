@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Pin from "./components/Pin";
 
 function App() {
+  const [otp, setOtp] = useState();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <Pin
+          inputLength={5}
+          setOtpHandler={(value) => {
+            setOtp(value);
+          }}
+        ></Pin>
+        <button className="button-31">Submit</button>
+      </form>
+      <h1>Your OTP is: {otp}</h1>
     </div>
   );
 }
